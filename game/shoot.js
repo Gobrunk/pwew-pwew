@@ -37,6 +37,7 @@ function collisions()
     bullet_collision();
     player_collision();
     player_falling();
+    checkLife();
 }
 
 function bullet_collision()
@@ -125,4 +126,10 @@ function player_falling()
         }
     }
 
+}
+
+function checkLife() {
+    if(player1.life <= 0) {
+        player1.dead();
+    }
 }
