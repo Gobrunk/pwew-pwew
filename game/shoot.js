@@ -52,8 +52,10 @@ function bullet_collision()
             i--;
         }
 
-        if (Math.abs(player1.bullets[i].position.x) == Math.abs(player2.graphic.position.x) ||
-            Math.abs(player1.bullets[i].position.y) == Math.abs(player2.graphic.position.y))
+        if ((player1.bullets[i].position.x < player2.graphic.position.x + 10 &&
+            player1.bullets[i].position.x > player2.graphic.position.x - 10) &&
+            (player1.bullets[i].position.y < player2.graphic.position.y + 10 &&
+            player1.bullets[i].position.y > player2.graphic.position.y - 10))
         {
             scene.remove(player1.bullets[i]);
             scene.remove(player2.graphic);
