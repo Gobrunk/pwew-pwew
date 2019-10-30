@@ -13,6 +13,10 @@ function update()
     if (keyboard.pressed("down"))
         player1.decelerate(moveDistance);
 
+    //player2.accelerate(50);
+
     player1.move();
+    player2.move();
+
     controls.update();
 }
