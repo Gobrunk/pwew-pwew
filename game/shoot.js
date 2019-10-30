@@ -83,6 +83,19 @@ function player_collision()
     if ( y > HEIGHT )
         player1.graphic.position.y -= y - HEIGHT;
 
+    if ((player1.graphic.position.x < player2.graphic.position.x + 10 &&
+        player1.graphic.position.x > player2.graphic.position.x - 10) &&
+        (player1.graphic.position.y < player2.graphic.position.y + 10 &&
+        player1.graphic.position.y > player2.graphic.position.y - 10))
+    {
+        if(!wasHit) {
+            player1.life--;
+            wasHit = true
+        }
+    }
+    else{
+        wasHit = false;
+    }
 }
 
 function player_falling()
