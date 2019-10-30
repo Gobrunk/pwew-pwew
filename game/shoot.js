@@ -2,7 +2,7 @@ var bulletTime1 = 0;
 
 var bullet_player1_material = new THREE.MeshLambertMaterial(
 {
-    color: 0x00ff00, 
+    color: 0x00ff00,
     transparent: false
 });
 
@@ -19,7 +19,7 @@ function shoot()
         bullet.angle = player1.direction;
         player1.bullets.push(bullet);
         bulletTime1 = clock.getElapsedTime();
-    } 
+    }
 
     // move bullets
     var moveDistance = 5;
@@ -61,6 +61,8 @@ function player_collision()
     var x = player1.graphic.position.x + WIDTH / 2;
     var y = player1.graphic.position.y + HEIGHT / 2;
 
+    if ( x < 0 )
+        player1.graphic.position.x -= x;
     if ( x > WIDTH )
         player1.graphic.position.x -= x - WIDTH;
     if ( y < 0 )
@@ -90,7 +92,7 @@ function player_falling()
 
         if ((x > tileX)
             && (x < mtileX)
-            && (y > tileY) 
+            && (y > tileY)
             && (y < mtileY))
         {
             player1.dead();
